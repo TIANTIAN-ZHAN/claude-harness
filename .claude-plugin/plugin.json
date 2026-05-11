@@ -1,0 +1,31 @@
+{
+  "name": "claude-harness",
+  "description": "Scaffold a production AI agent harness in any repo, in 5 minutes. Tools for the post-vibe-coding era.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Tiantian Zhan"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude-skill",
+    "claude-plugin",
+    "claude-md",
+    "ai-agents",
+    "ai-coding",
+    "coding-agents",
+    "agents-md",
+    "vibe-coding",
+    "post-vibe-coding",
+    "harness-engineering",
+    "context-engineering",
+    "prompt-engineering",
+    "skill-library"
+  ],
+  "skills": [
+    "./skills/bootstrap-harness",
+    "./skills/review-harness",
+    "./skills/finish-phase",
+    "./skills/promote-lesson"
+  ]
+}

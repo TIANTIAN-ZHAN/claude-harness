@@ -26,6 +26,7 @@
     "./skills/bootstrap-harness",
     "./skills/review-harness",
     "./skills/finish-phase",
-    "./skills/promote-lesson"
+    "./skills/promote-lesson",
+    "./skills/test-first"
   ]
 }

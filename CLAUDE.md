@@ -10,14 +10,18 @@ A toolkit for the **post-vibe-coding era**: skills that scaffold and maintain an
 
 ```
 claude-harness/
-├── README.md              # story + install + skill index (the public face)
+├── README.md              # story + install + skill index — Chinese (the public face)
+├── README.en.md           # English companion
 ├── LICENSE                # MIT
 ├── CLAUDE.md              # this file
 ├── .claude-plugin/        # Claude Code plugin manifest
 │   └── plugin.json
 ├── skills/                # ← the actual product
 │   ├── bootstrap-harness/SKILL.md
-│   └── review-harness/SKILL.md
+│   ├── test-first/SKILL.md
+│   ├── review-harness/SKILL.md
+│   ├── finish-phase/SKILL.md
+│   └── promote-lesson/SKILL.md
 └── docs/                  # long-form supporting material
     ├── narrative.md       # the "From vibe to harness" essay
     ├── research.md        # cited research with links
@@ -26,7 +30,7 @@ claude-harness/
 
 ## Conventions
 
-- **All public-facing files in English.** Skills SKILL.md may keep Chinese templates internally where the audience is bilingual, but README / docs / commit messages are English-first.
+- **Primary `README.md` is Simplified Chinese** (English companion: [`README.en.md`](README.en.md)). Other public-facing material — `docs/`, skill prose, commit messages — stays **English-first**. Skills SKILL.md may keep Chinese templates internally where the audience is bilingual.
 - **SKILL.md ≤ 500 lines.** Front-load the *when/why*; push templates and anti-patterns to the bottom or to `reference/` subdirs.
 - **No emoji decoration** in headings unless it carries semantic weight (✅ / ⚠️ / 🚫 for boundary tiers is OK).
 - **Cite research with links** when making claims. No naked "studies show".

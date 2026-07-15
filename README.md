@@ -48,6 +48,7 @@ cp -r ~/.claude/skills-tmp/skills/* ~/.claude/skills/
 
 - **`CLAUDE.md`** —— 命令、约定、三级边界(✅ 总是 / ⚠️ 先问 / 🚫 绝不)。控制在 60 行以内,这样每次进上下文都很便宜。
 - **`docs/exec-plans/`** —— `active/` 放进行中的工作,`completed/` 放已交付的。索引文件就是新会话的入口:打开它,agent 就知道你上次停在哪。
+- **`scripts/check-harness.mjs`** —— 四道零依赖机械门(状态行 / 生命周期 / 索引双向 / 链接健康),第一天就接进 CI;有 CI 的仓库再配一个每周自检 workflow,红绿都推通知。散文只会因被校验而变对。
 - **`docs/lessons.md`** —— 只增不改的复盘记录,是 `/promote-lesson` 挖料的原矿。
 - **`docs/exec-plans/tech-debt-tracker.md`** —— 「回头再收拾」清单,按 P0–P3 排优先级。
 - 可选:`GLOSSARY.md`、`ARCHITECTURE.md`、`core-beliefs.md` —— 只在项目确实需要时才建。

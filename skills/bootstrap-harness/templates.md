@@ -41,6 +41,7 @@ Skeletons only. **Do not write verbatim** — scan the target repo and fill with
 - 加依赖 · 改 schema · 改核心业务规则 · 改已上线 UX
 ### 🚫 Never
 - 改 `<framework-core>` · 绕 auth/validation · 字符串拼 SQL · 打印密钥 · 跨服务直读对方 DB
+- 新增根级 md(根只放生态钉死件:README/AGENTS/CLAUDE/CONTRIBUTING/CODEOWNERS/justfile,其余进 `docs/`)
 
 ## 模糊时默认
 - <5-8 条项目特定 default,如:复用 > 创造 / 显式 > 隐式>
@@ -60,8 +61,10 @@ Skeletons only. **Do not write verbatim** — scan the target repo and fill with
 | 留了"先凑合" | `docs/exec-plans/tech-debt-tracker.md` |
 | 可复用教训 | 追加 `docs/lessons.md` |
 | 改了 code/schema | 改代码/测试本身;**别在 prose 里复述**(会烂) |
+| **一次性内容做完**(上线步/迁移/作废 spec) | 压一行墓碑(✅+日期+指针),正文删,留标题;git 历史即档案;**禁「⚠️ 日期更新」补丁块** |
+| 引用本地 archive 的调研/报告 | 结论 3-5 行内联;路径只用反引号+「本地存档」,**禁可点链接**(clone 必断) |
 
-**阶段性任务完成 → 触发 `/review-harness`。**
+**CI 每周跑 `scripts/check-harness.mjs`(红绿都推);阶段完成/月度 → `/review-harness`。**
 ```
 
 > 注:若 CORRECT/INCORRECT 示例对 agent 真有用,放 `GLOSSARY.md` 或一个 linked doc,**别进 CLAUDE.md**(占行数 + 多数 task 不需要)。CLAUDE.md 是指针。
@@ -82,10 +85,18 @@ The **single index** for all exec-plans. Plans live as `active/<plan>.md` and gr
 <切 JDK / 激活 venv / 加载 env> ; cd <root> ; <快速验证:npm run dev / pytest --co>
 ​```
 
-## Active(只放进行中)
-| 阶段 | 状态 | 文件 |
+## 状态行词表(每个 active 计划**顶部必带**,门脚本机器解析)
+`> 状态:<emoji> 一句话` — 📋 待开始 · 🔄 进行中 · ⏸️ 停靠(**必带 `Revisit:<条件|日期>`**,没有 Revisit 的停靠=无限期沉没)· 📌 长期伞(豁免时效)· ✅ 完成(**同 commit 搬 completed/**)。
+> 21 天无 commit 且非 📌/⏸️ → 门红,三选一:推进 / 显式停靠 / 搬走。
+
+## Active — 在飞
+| 计划 | 状态 | 文件 |
 |---|---|---|
-| <plan> | 🟡 进行中 / ⏳ 待开始 | `active/<plan>.md` |
+| <plan> | 🔄 <一句话> | `active/<plan>.md` |
+
+## Active — 停靠(⏸️,每行带 Revisit)
+| 计划 | Revisit | 文件 |
+|---|---|---|
 
 ## Completed
 | 阶段 | 完成日期 | 文件 |
@@ -93,10 +104,10 @@ The **single index** for all exec-plans. Plans live as `active/<plan>.md` and gr
 | <plan> | <YYYY-MM-DD> | `completed/<plan>.md` |
 
 ## 维护规则
-- 进行中 → `active/<plan>.md`(active/ 里**不另写 README**)。
-- 交付时:**同一个 commit** `mv active/<plan>.md completed/`,在末尾追加"结果 / 踩坑 / 遗留",同步本表。标了 ✅ 还留在 active/ = 违规。
-- 渲染 HTML / 报告 / 设计变体 → `archive/`(gitignored),不进 active/。
-- 阶段完成 → 触发 `/review-harness`(用户级 skill)。
+- 进行中 → `active/<plan>.md`(active/ 里**不另写 README**);新计划**同 commit** 登进本表(门脚本查双向:目录↔表,active 和 completed 都查)。
+- 交付时:**同一个 commit** `mv active/<plan>.md completed/`,末尾追加"结果 / 踩坑 / 遗留",同步本表。标了 ✅ 还留在 active/ = 门红。
+- 渲染 HTML / 报告 / 设计变体 → `archive/`(gitignored,**全仓唯一坟场**),不进 active/;tracked 文档引用它=结论内联+反引号,禁可点链接。
+- 每周 CI 自检 `scripts/check-harness.mjs`(红绿都推);月度 + 大线收口 → `/review-harness`(用户级 skill)。
 ```
 
 ---

@@ -48,6 +48,7 @@ A docs system the agent reads before doing anything:
 
 - **`CLAUDE.md`** — commands, conventions, three-tier boundaries (✅ Always / ⚠️ Ask first / 🚫 Never). Capped at 60 lines so it stays in context cheaply.
 - **`docs/exec-plans/`** — `active/` for in-flight work, `completed/` for shipped. The index file becomes the new-session entry point: open it and the agent knows where you left off.
+- **`scripts/check-harness.mjs`** — four zero-dep mechanical gates (status line / lifecycle / two-way index / link health), wired into CI from day one; repos with CI also get a weekly self-check workflow that notifies on green AND red. Prose only stays true when something checks it.
 - **`docs/lessons.md`** — append-only post-mortems. The raw material `/promote-lesson` mines.
 - **`docs/exec-plans/tech-debt-tracker.md`** — the "we'll come back to this" list, prioritized P0–P3.
 - Optionally: `GLOSSARY.md`, `ARCHITECTURE.md`, `core-beliefs.md` — only when the project earns them.
